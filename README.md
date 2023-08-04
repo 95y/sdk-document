@@ -188,7 +188,7 @@ jll.initData({
 }
 ```
 <span id="getSdkTokenInfo"></span>
-## getSdkTokenInfo-获取当前角色信息
+## getSdkTokenInfo
 ### 请求参数
 | 参数 | 是否必传 | 类型 |
 | --- | --- | --- |
