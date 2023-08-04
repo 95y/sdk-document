@@ -8,7 +8,7 @@
 5) [getGlobalCustom](#getGlobalCustom)
 6) [updateGlobalCustom](#updateGlobalCustom)
 7) [getAllRole](#getAllRole)
-8) [getSdkTokenInfo](#getSdkTokenInfo)
+8) [getSdkTokenInfo](#getsdktokeninfo)
 9) [getSdkPlayerList](#getSdkPlayerList)
 10) [appBack](#appBack)
 11) [appendNavigation](#appendNavigation)
@@ -187,8 +187,8 @@ jll.initData({
     ]
 }
 ```
-<span id="getSdkTokenInfo"></span>
-## getSdkTokenInfo
+<span id="getsdktokeninfo"></span>
+## getSdkTokenInfo-获取当前角色信息
 ### 请求参数
 | 参数 | 是否必传 | 类型 |
 | --- | --- | --- |
