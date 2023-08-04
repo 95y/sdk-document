@@ -1,5 +1,19 @@
 
 ## H5开发流程 
+### sdk暴露的方法
+1) [getUrlParams](#getUrlParams)
+2) [initData](#initData)
+3) [getRole](#getRole)
+4) [updateRole](#updateRole)
+5) [getGlobalCustom](#getGlobalCustom)
+6) [updateGlobalCustom](#updateGlobalCustom)
+7) [getAllRole](#getAllRole)
+8) [getSdkTokenInfo](#getSdkTokenInfo)
+9) [getSdkPlayerList](#getSdkPlayerList)
+10) [appBack](#appBack)
+11) [appendNavigation](#appendNavigation)
+12) [initSocket](#initSocket)
+
 一.开发游戏阶段:  
 1) 在[柒巧空间](https://cspace.you-drama.com/#/user/login)上传剧本，得到一个key。同时上传剧本所需的角色列表  
 2) 通过柒巧空间得到的key调用SDK的初始化（initData）接口, 返回角色列表(<font color=#ffa657>roleId</font>  -- roleName -- roleToken)  
@@ -173,6 +187,7 @@ jll.initData({
     ]
 }
 ```
+<span id="getSdkTokenInfo"></span>
 ## getSdkTokenInfo-获取当前角色信息
 ### 请求参数
 | 参数 | 是否必传 | 类型 |
@@ -213,6 +228,71 @@ roleNickName:     角色名称
 	"roleAvatarUrl": "https://larp-test.oss-cn-shenzhen.aliyuncs.com/4408/C5D5F0B518F32A501688634930435.jpg",
 	"roleId": 669,
 	"roleNickName": "胡克"
+}
+```
+
+<span id="getSdkPlayList"></span>
+## getSdkPlayList-获取剧本角色列表
+### 请求参数
+| 参数 | 是否必传 | 类型 |
+| --- | --- | --- |
+| sKey | 是 | String (角色token) |
+
+### 请求示例
+```json
+const token = '123456'
+jll.getSdkPlayList({
+  params: {
+    sKey: token
+  },
+  success (res) {
+    console.log(res)
+  },
+  fail (e) {
+    console.log(e)
+  },
+  complete () {
+    console.log('完成')
+  }
+})
+```
+### 成功响应
+##### 参数说明：
+```
+dmFlag:           是否是DM身份
+roleAvatarUrl:    角色头像
+roleId:           角色ID
+roleNickName:     角色名称
+```
+```json
+{
+    "constructor":1610711164,
+    "errorCode":0,
+    "sdkPlayerList":[
+        {
+            "dmFlag":false,
+            "roleAvatarUrl":"https://larp-test.oss-cn-shenzhen.aliyuncs.com/4302/3DB2C19112078F131688628771105.jpg",
+            "roleId":674,
+            "roleNickName":"队友丙"
+        },
+        {
+            "dmFlag":false,
+            "roleAvatarUrl":"https://larp-test.oss-cn-shenzhen.aliyuncs.com/43004e/78086B3613DDA6DA1685067941327.jpg",
+            "roleId":641,
+            "roleNickName":"队友乙"
+        },
+        {
+            "dmFlag":false,
+            "roleAvatarUrl":"https://larp-test.oss-cn-shenzhen.aliyuncs.com/43004e/E5645D6A626D5FC31685067904941.png",
+            "roleId":640,
+            "roleNickName":"队友甲223"
+        },
+        {
+            "dmFlag":true,
+            "roleId":50,
+            "roleNickName":"DM"
+        }
+    ]
 }
 ```
 ## getRole 获取自定义角色变量
