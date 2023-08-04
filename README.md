@@ -1,18 +1,18 @@
 
 ## H5开发流程 
 ### sdk暴露的方法
-1) [getUrlParams](#getUrlParams)
-2) [initData](#initData)
-3) [getRole](#getRole)
-4) [updateRole](#updateRole)
-5) [getGlobalCustom](#getGlobalCustom)
-6) [updateGlobalCustom](#updateGlobalCustom)
-7) [getAllRole](#getAllRole)
+1) [getUrlParams](#geturlparams)
+2) [initData](#initdata)
+3) [getRole](#getrole)
+4) [updateRole](#updaterole)
+5) [getGlobalCustom](#getglobalcustom)
+6) [updateGlobalCustom](#updateglobalcutom)
+7) [getAllRole](#getallrole)
 8) [getSdkTokenInfo](#getsdktokeninfo)
-9) [getSdkPlayerList](#getSdkPlayerList)
-10) [appBack](#appBack)
-11) [appendNavigation](#appendNavigation)
-12) [initSocket](#initSocket)
+9) [getSdkPlayerList](#getsdkplayerlist)
+10) [appBack](#appback)
+11) [appendNavigation](#appendnavigation)
+12) [initSocket](#initsocket)
 
 一.开发游戏阶段:  
 1) 在[柒巧空间](https://cspace.you-drama.com/#/user/login)上传剧本，得到一个key。同时上传剧本所需的角色列表  
@@ -66,6 +66,7 @@ A: 开发阶段: 可在柒巧空间的剧本编辑中，获取该剧本联调SDK
 ```
 <script src="https://osslarp.oss-cn-shenzhen.aliyuncs.com/common/sdk/jllsdk.iife.min_v1.0.2.js"></script>
 ```
+<span id="geturlparams"></span>
 ## SDK使用
 ### jll作为一个全局的变量，可以访问到SDK的所有方法
 ```javascript
@@ -93,6 +94,8 @@ A: 开发阶段: 可在柒巧空间的剧本编辑中，获取该剧本联调SDK
    socket:              socket的所有属性
    updateGlobalCustom: 	初始化/更新全局自定义变量
    updateRole:          初始化/更新角色自定义变量
+   getSdkTokenInfo:     获取当前角色信息
+   getSdkPlayList:      获取剧本角色列表
 
 ```
 ![image.png](https://cdn.nlark.com/yuque/0/2023/png/20359859/1684995642469-92b0dbc1-136c-4069-94e9-5698c0f26227.png#averageHue=%2323292c&clientId=u05f9c401-2053-4&from=paste&height=70&id=u69e774cd&originHeight=70&originWidth=380&originalType=binary&ratio=1&rotation=0&showTitle=false&size=12003&status=done&style=none&taskId=u33ffa135-b5f7-4d5c-879d-9364897388b&title=&width=380)
@@ -121,12 +124,15 @@ jll.initData({
 
  💡 当errorCode为0时则调用成功，其他则失败
 
-## 
+<span id="appback"></span>
+## 剧乐乐App默认去除导航栏，自定义导航栏后退方法请调用appBack
+jll.appBack()
 ### 剧乐乐App端添加导航栏
 ```json
 // 直接调用就可以，webview环境判断已在内部做了判断
 jll.appendNavigation('标题名称')
 ```
+<span id="initdata"></span>
 ## initData初始化-获取剧本角色列表信息
 ### 请求参数
 | 参数 | 是否必传 | 类型 |
@@ -231,7 +237,7 @@ roleNickName:     角色名称
 }
 ```
 
-<span id="getSdkPlayList"></span>
+<span id="getsdkplaylist"></span>
 ## getSdkPlayList-获取剧本角色列表
 ### 请求参数
 | 参数 | 是否必传 | 类型 |
@@ -295,6 +301,7 @@ roleNickName:     角色名称
     ]
 }
 ```
+<span id="getrole"></span>
 ## getRole 获取自定义角色变量
 ### 请求参数
 | 参数 | 是否必传 | 类型 |  |
@@ -340,6 +347,7 @@ jll.getRole({
   }
 }
 ```
+<span id="updaterole"></span>
 ## updateRole 初始化/更新/删除自定义角色变量
 ### 请求参数
 | 参数 | 是否必传 | 类型 | 说明 |
@@ -386,6 +394,7 @@ jll.updateRole({
 {"constructor":1610711154,"errorCode":0}
 ```
 
+<span id="getglobalcustom"></span>
 ## getGlobalCustom 获取自定义全局变量
 ### 请求参数
 | 参数 | 是否必传 | 类型 |  |
@@ -428,7 +437,7 @@ jll.getGlobalCustom({
   }
 }
 ```
-
+<span id="updateglobalcustom"></span>
 ## updateGlobalCustom 更新自定义全局变量
 ### 请求参数
 | 参数 | 是否必传 | 类型 | 说明 |
@@ -475,6 +484,7 @@ jll.updateGlobalCustom({
 }
 ```
 
+<span id="getallrole"></span>
 ## getAllRole 获取所有角色自定义变量
 ### 请求参数
 | 参数 | 是否必传 | 类型 |  |
@@ -521,6 +531,7 @@ jll.getAllRole({
   ]
 }
 ```
+<span id="initsocket"></span>
 ## socket的初始化与接收
 
 ### 请求示例
