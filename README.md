@@ -1,18 +1,19 @@
 
 ## H5开发流程 
 ### sdk暴露的方法
-1) [getUrlParams](#geturlparams)
-2) [initData](#initdata)
-3) [getRole](#getrole)
-4) [updateRole](#updaterole)
-5) [getGlobalCustom](#getglobalcustom)
-6) [updateGlobalCustom](#updateglobalcutom)
-7) [getAllRole](#getallrole)
-8) [getSdkTokenInfo](#getsdktokeninfo)
-9) [getSdkPlayerList](#getsdkplayerlist)
-10) [appBack](#appback)
-11) [appendNavigation](#appendnavigation)
-12) [initSocket](#initsocket)
+1) [getUrlParams](#geturlparams) (获取URL上参数)
+2) [initData](#initdata) (剧本初始化，获取角色列表)
+3) [getRole](#getrole) (获取角色自定义变量)
+4) [updateRole](#updaterole) (更新角色自定义变量)
+5) [getGlobalCustom](#getglobalcustom) (获取全局自定义变量)
+6) [updateGlobalCustom](#updateglobalcutom) (更新全局自定义变量)
+7) [getAllRole](#getallrole) (获取所有角色自定义变量List)
+8) [getSdkTokenInfo](#getsdktokeninfo) (获取当前角色信息)
+9) [getSdkPlayerList](#getsdkplayerlist) (获取剧本角色列表)
+10) [appBack](#appback) (剧乐乐App 后退)
+11) [appendNavigation](#appendnavigation) (H5插入导航 - 仅App生效，小程序默认导航无法去除)
+12) [initSocket](#initsocket) (初始化连接socket)
+13) [socket](#socket) (socket的属性)
 
 一.开发游戏阶段:  
 1) 在[柒巧空间](https://cspace.you-drama.com/#/user/login)上传剧本，得到一个key。同时上传剧本所需的角色列表  
