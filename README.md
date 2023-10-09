@@ -490,7 +490,7 @@ jll.updateGlobalCustom({
 ### 请求参数
 | 参数 | 是否必传 | 类型 | 说明 |
 | --- | --- | --- | --- |
-| sKey | 是 | String  | (token) |
+| sKey | 是 | String  | (角色token) |
 
 ### 请求示例
 ```json
