@@ -14,6 +14,7 @@
 11) [appendNavigation](#appendnavigation) (H5插入导航 - 仅App生效，小程序默认导航无法去除)
 12) [initSocket](#initsocket) (初始化连接socket)
 13) [socket](#socket) (socket的属性)
+14) [getRoomStoreInfo](#getroomstoreinfo) (获取房间店铺信息)
 
 一.开发游戏阶段:  
 1) 在[柒巧空间](https://cspace.you-drama.com/#/user/login)上传剧本，得到一个key。同时上传剧本所需的角色列表  
@@ -96,7 +97,7 @@ A: 开发阶段: 可在柒巧空间的剧本编辑中，获取该剧本联调SDK
    updateGlobalCustom: 	初始化/更新全局自定义变量
    updateRole:          初始化/更新角色自定义变量
    getSdkTokenInfo:     获取当前角色信息
-   getSdkPlayList:      获取剧本角色列表
+   getSdkPlayerList:      获取剧本角色列表
 
 ```
 ![image.png](https://cdn.nlark.com/yuque/0/2023/png/20359859/1684995642469-92b0dbc1-136c-4069-94e9-5698c0f26227.png#averageHue=%2323292c&clientId=u05f9c401-2053-4&from=paste&height=70&id=u69e774cd&originHeight=70&originWidth=380&originalType=binary&ratio=1&rotation=0&showTitle=false&size=12003&status=done&style=none&taskId=u33ffa135-b5f7-4d5c-879d-9364897388b&title=&width=380)
@@ -239,7 +240,7 @@ roleNickName:     角色名称
 ```
 
 <span id="getsdkplaylist"></span>
-## getSdkPlayList-获取剧本角色列表
+## getSdkPlayerList-获取剧本角色列表
 ### 请求参数
 | 参数 | 是否必传 | 类型 |
 | --- | --- | --- |
@@ -248,7 +249,7 @@ roleNickName:     角色名称
 ### 请求示例
 ```json
 const token = '123456'
-jll.getSdkPlayList({
+jll.getSdkPlayerList({
   params: {
     sKey: token
   },
@@ -482,6 +483,46 @@ jll.updateGlobalCustom({
 {
   "constructor":1610711159,
   "errorCode":0,
+}
+```
+<span id="getroomstoreinfo"></span>
+## getRoomStoreInfo 获取房间店铺信息
+### 请求参数
+| 参数 | 是否必传 | 类型 | 说明 |
+| --- | --- | --- | --- |
+| sKey | 是 | String  | (token) |
+
+### 请求示例
+```json
+const token = '123456'
+jll.getRoomStoreInfo({
+  params: {
+    sKey: token
+  },
+  success (res) {
+    console.log(res)
+  },
+  fail (e) {
+    console.log(e)
+  },
+  complete () {
+    console.log('完成')
+  }
+})
+```
+### 成功响应
+**条件**：请求参数合法，并且用户身份校验通过。
+```json
+{
+  "address":"深大地铁站A口",
+  "area":"南山区",
+  "city":"深圳市",
+  "constructor":1610711165,
+  "errorCode":0,
+  "province":"广东省",
+  "roomCode":"123456", // 房间号
+  "storeName":"张三的店铺", // 店铺名
+  "storeOpenId":"LOcJd7XGXXXNttZ0Kray8A%3D%3D"
 }
 ```
 
