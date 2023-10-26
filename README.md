@@ -15,6 +15,7 @@
 12) [initSocket](#initsocket) (初始化连接socket)
 13) [socket](#socket) (socket的属性)
 14) [getRoomStoreInfo](#getroomstoreinfo) (获取房间店铺信息)
+15) [clearGlobalAndRoleCustom](#clearglobalandrolecustom) (清除房间所有变量数据，包含全局和角色)
 
 一.开发游戏阶段:  
 1) 在[柒巧空间](https://cspace.you-drama.com/#/user/login)上传剧本，得到一个key。同时上传剧本所需的角色列表  
@@ -239,7 +240,7 @@ roleNickName:     角色名称
 }
 ```
 
-<span id="getsdkplaylist"></span>
+<span id="getsdkplayerlist"></span>
 ## getSdkPlayerList-获取剧本角色列表
 ### 请求参数
 | 参数 | 是否必传 | 类型 |
@@ -523,6 +524,39 @@ jll.getRoomStoreInfo({
   "roomCode":"123456", // 房间号
   "storeName":"张三的店铺", // 店铺名
   "storeOpenId":"LOcJd7XGXXXNttZ0Kray8A%3D%3D"
+}
+```
+<span id="clearglobalandrolecustom"></span>
+## clearGlobalAndRoleCustom 清除房间所有角色变量和全局数据
+### 请求参数
+| 参数 | 是否必传 | 类型 | 说明 |
+| --- | --- | --- | --- |
+| sKey | 是 | String  | (角色token) |
+
+### 请求示例
+```json
+const token = '123456'
+jll.clearGlobalAndRoleCustom({
+  params: {
+    sKey: token
+  },
+  success (res) {
+    console.log(res)
+  },
+  fail (e) {
+    console.log(e)
+  },
+  complete () {
+    console.log('完成')
+  }
+})
+```
+### 成功响应
+**条件**：请求参数合法，并且用户身份校验通过。
+```json
+{
+  "constructor":1610711166,
+  "errorCode":0,
 }
 ```
 
