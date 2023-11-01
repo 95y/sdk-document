@@ -68,7 +68,7 @@ A: 开发阶段: 可在柒巧空间的剧本编辑中，获取该剧本联调SDK
 ## 引入SDK
 ### 在html文件中引入SDK
 ```
-<script src="https://osslarp.oss-cn-shenzhen.aliyuncs.com/common/sdk/jllsdk.iife.min_v1.0.2.js"></script>
+<script src="https://osslarp.oss-cn-shenzhen.aliyuncs.com/common/sdk/jllsdk.iife.min_v1.0.6_prod.js"></script>
 ```
 <span id="geturlparams"></span>
 ## SDK使用
